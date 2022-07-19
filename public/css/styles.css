@@ -13,3 +13,13 @@ body {
     background-color: lightgray;
     border-radius: 4px;
 }
+.card-title,
+.card-text{
+	background-color: lightgray;
+	border-radius: 4px;
+}
+.edit,
+.remove{
+	color: darkgreen;
+	font-size: 18px;
+}

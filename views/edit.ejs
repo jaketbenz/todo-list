@@ -22,10 +22,10 @@
         <div class="container container-insert col-8 my-5">
             <h2 class="text-center py-3">Edit To Do List</h2>
             <div class="row my-2">
-                <% todoTasks.forEach(task=> {%>
+                <% todoTasks.sort((a, b)=> (b._id == idTask) - (a._id == idTask)).forEach(task=> {%>
                     <% if(task._id==idTask){%>
                         <div class="d-flex justify-content-center">
-                            <form action="/" method="post" class="text-center">
+                            <form action="/edit/<%= task._id%>" method="post" class="text-center">
                                 <div class="my-2">
                                     <label for="title" class="form-label">Title</label>
                                     <input type="text" class="form-control" id="title" name="title">
@@ -34,7 +34,7 @@
                                     <label for="content" class="form-label">Task</label>
                                     <input type="text" class="form-control" id="content" name="content">
                                 </div>
-                                <button type="submit" class="btn btn-success my-2">
+                                <button type="submit" class="btn btn-success my-2 confirm">
                                     <span class="">Confirm Edit</span>
                                 </button>
                                 <a href="/" class="btn btn-danger cancel">Cancel Edit</a>
@@ -51,12 +51,12 @@
                                         <div class="card-text my-3">
                                             <%= task.content %>
                                         </div>
-                                        <div class="row my-3">
-                                            <a href="/edit/<%=task._id%>" class="col-6 edit">
-                                                <span class="fas fa-edit"></span>
+                                        <div class="row">
+                                            <a href="/edit/<%=task._id%>" class="edit my-1">
+                                                <span class="fas fa-edit"></span>Edit
                                             </a>
-                                            <a href="/remove/<%=task._id%>" class="col-6 remove">
-                                                <span class="fas fa-times"></span>
+                                            <a href="/remove/<%=task._id%>" class="remove my-1">
+                                                <span class="fas fa-times"></span>Delete
                                             </a>
                                         </div>
                                     </div>
